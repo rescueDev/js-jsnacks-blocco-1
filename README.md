@@ -1,9 +1,6 @@
-<strong> Jsnack 
+<strong> Jsnack su JS Objects e JS Array
 
 JSnack LC (fatti in classe);
- 
- <br>
-
+<br>
 JSnack Compiti (quelli assegnati per il pomeriggio)
-
 </strong>
