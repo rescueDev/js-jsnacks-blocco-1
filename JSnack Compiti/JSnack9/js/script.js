@@ -19,8 +19,8 @@ var nomiRange = [];
 var primoNum = parseInt(prompt("Primo numero"));
 
 //cliclo while finchè utente non mette numeri range o non mette numeri
-while (primoNum > nomi.length || isNaN(primoNum)) {
-  alert("Numero fuori range inserisci numero da 0 a " + nomi.length);
+while (primoNum > nomi.length - 1 || isNaN(primoNum)) {
+  alert("Numero fuori range inserisci numero da 0 a " + (nomi.length - 1));
   primoNum = parseInt(prompt("Primo numero"));
 }
 
@@ -29,19 +29,28 @@ while (primoNum > nomi.length || isNaN(primoNum)) {
 var secondoNum = parseInt(prompt("Secondo numero"));
 
 //cliclo while finchè utente non mette numeri range o non mette numeri
-while (secondoNum > nomi.length || isNaN(secondoNum)) {
-  alert("Numero fuori range inserisci numero da 0 a " + nomi.length);
+while (secondoNum > nomi.length - 1 || isNaN(secondoNum)) {
+  alert("Numero fuori range inserisci numero da 0 a " + (nomi.length - 1));
   secondoNum = parseInt(prompt("Secondo numero"));
 }
 
 console.log(primoNum, secondoNum); //vedo numeri immessi
 
-var lunghezzaArray = secondoNum + 1; //creo variabile con secondoNum incrementato di 1 per far tornare il range desiderato nel loop
-
-//ciclo tra gli indici partendo dal primo numero immesso fino al secondo incrementato di 1 per rientrare nel range voluto
-for (var i = primoNum; i < lunghezzaArray; i++) {
-  console.log(nomi[i]);
-  nomiRange.push(nomi[i]); // pusho i nuovi nomi nell' array vuoto
+//caso limite in cui il primo numero sia > del secondo
+if (primoNum > secondoNum) {
+  for (var i = secondoNum + 1; i < primoNum; i++) {
+    console.log(nomi[i]);
+    nomiRange.push(nomi[i]); // pusho i nuovi nomi nell' array vuoto
+  }
 }
 
+//caso in cui primo numero sia < del secondo
+else {
+  for (var i = primoNum + 1; i < secondoNum; i++) {
+    console.log(nomi[i]);
+    nomiRange.push(nomi[i]); // pusho i nuovi nomi nell' array vuoto
+  }
+}
+
+// OUTPUT finale
 console.log("Nuovo array nomi filtrato: ", nomiRange); // stampo array nuovo filtrato
